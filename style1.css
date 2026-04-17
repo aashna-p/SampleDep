@@ -1,0 +1,30 @@
+body{
+    font-family: Arial;
+    background-image: url("C:/Users/hp/Downloads/minimal-background_68067-8552.avif");
+    background-size: cover;      /* fills screen */
+    background-position: center; /* keeps it centered */
+    background-repeat: no-repeat;
+    
+}
+h1{
+    text-align: center;
+    text-decoration: wavy;
+    text-emphasis-color: white;
+}
+
+#f {
+
+
+    text-align:justify;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.959), powderblue);
+    border: 2px dashed black;
+
+    width: 400px;        /* controls box size */
+    margin: 50px auto;   /* centers horizontally + adds top spacing */
+    padding: 20px;       /* space inside the box */
+    border-radius: 10px; /* optional: rounded corners */
+}
+
+
+    
+    
