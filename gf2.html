@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Participants Info</title>
+</head>
+
+<body>
+
+<h2 align="center">PARTICIPANTS INFO</h2>
+
+<button onclick="showTotal()">Total Participants</button>
+<p id="total"></p>
+
+<table border="1" width="100%" cellpadding="20">
+    <tr>
+        <td align="center">
+            <h3>Neon Night Run</h3>
+            <p id="neon">0</p>
+        </td>
+
+        <td align="center">
+            <h3>Gourmet and Groove</h3>
+            <p id="gourmet">0</p>
+        </td>
+
+        <td align="center">
+            <h3>Code & Coffee Jam</h3>
+            <p id="code">0</p>
+        </td>
+    </tr>
+</table>
+
+<br>
+<button onclick="resetCounts()">Reset All</button>
+
+<br><br>
+<a href="gf1.html">Back</a>
+
+<script>
+function updateDisplay() {
+    document.getElementById("neon").innerText =
+        localStorage.getItem("neon") || 0;
+
+    document.getElementById("gourmet").innerText =
+        localStorage.getItem("gourmet") || 0;
+
+    document.getElementById("code").innerText =
+        localStorage.getItem("code") || 0;
+}
+
+function showTotal() {
+    let neon = parseInt(localStorage.getItem("neon")) || 0;
+    let gourmet = parseInt(localStorage.getItem("gourmet")) || 0;
+    let code = parseInt(localStorage.getItem("code")) || 0;
+
+    let total = neon + gourmet + code;
+
+    document.getElementById("total").innerText =
+        "Total Participants: " + total;
+}
+
+function resetCounts() {
+    localStorage.removeItem("neon");
+    localStorage.removeItem("gourmet");
+    localStorage.removeItem("code");
+
+    updateDisplay();
+    document.getElementById("total").innerText = "";
+}
+
+// Load values when page opens
+window.onload = function() {
+    updateDisplay();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Events Table</title>
+</head>
+
+<body>
+
+<h2>Enter Student Details</h2>
+
+Reg No: <input type="text" id="regno"><br>
+Name: <input type="text" id="name"><br>
+
+<label>Event:</label>
+<select id="ev">
+    <option value="Neon Night run">Neon Night run</option>
+    <option value="Gourmet and groove">Gourmet and groove</option>
+    <option value="Code and Coffee jam">Code and Coffee jam</option>
+</select>
+
+<br><br>
+<button onclick="addData()">Add to Table</button>
+
+<br><br>
+
+<table border="1" id="eventstable">
+    <tr>
+        <th>Reg No</th>
+        <th>Name</th>
+        <th>Event</th>
+    </tr>
+</table>
+
+<br>
+<a href="gf2.html">Go to Participants Info</a>
+
+<script>
+function addData() {
+    var reg = document.getElementById("regno").value;
+    var name = document.getElementById("name").value;
+    var event = document.getElementById("ev").value;
+
+    if(reg === "" || name === "") {
+        alert("Please fill all details");
+        return;
+    }
+
+    var table = document.getElementById("eventstable");
+    var row = table.insertRow(-1);
+
+    row.insertCell(0).innerHTML = reg;
+    row.insertCell(1).innerHTML = name;
+    row.insertCell(2).innerHTML = event;
+
+    // ✅ Count logic (no JSON)
+    if(event === "Neon Night run") {
+        let count = localStorage.getItem("neon") || 0;
+        localStorage.setItem("neon", parseInt(count) + 1);
+    }
+
+    if(event === "Gourmet and groove") {
+        let count = localStorage.getItem("gourmet") || 0;
+        localStorage.setItem("gourmet", parseInt(count) + 1);
+    }
+
+    if(event === "Code and Coffee jam") {
+        let count = localStorage.getItem("code") || 0;
+        localStorage.setItem("code", parseInt(count) + 1);
+    }
+
+    document.getElementById("regno").value = "";
+    document.getElementById("name").value = "";
+}
+</script>
+
+</body>
+</html>
